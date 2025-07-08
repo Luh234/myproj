@@ -1,0 +1,16 @@
+<h2>Painel do Administrador</h2>
+<ul id="lista"></ul>
+
+<script>
+  fetch('/api/revendedores')
+    .then(res => res.json())
+    .then(data => {
+      const lista = document.getElementById('lista');
+      data.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = `${user.nome} - ${user.email}`;
+        lista.appendChild(li);
+      });
+    });
+</script>
+
